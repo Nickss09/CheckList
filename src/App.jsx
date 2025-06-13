@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import List from "./components/List";
+
+import TaskList from "./components/TaskList";
 
 function App() {
-  const [tasks, setTasks] = useState([
-  ]);
-
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   const addTask = () => {
@@ -23,12 +22,9 @@ function App() {
         </div>
 
         <div className="List">
-          {tasks.map((task, index) => (
-            <div className="Tarefas" key={index}>
-              <h3>
-                <List id={`cbx-${index}`} label={task} />
-              </h3>
-            </div>
+          <h3 style={{ textAlign: 'center' }}>Domingo</h3>
+          {tasks.length !== 0 && tasks.map((task, index) => (
+            <TaskList index={index} task={task} />
           ))}
         </div>
 

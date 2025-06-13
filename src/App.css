@@ -28,7 +28,6 @@
 
 .List {
   width: 1280px;
-  border: 1px solid #03256C;
   background-color: #E5E8B6;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   display: flex;
@@ -40,19 +39,8 @@
 .Title {
   color: #FFFFFF;
 }
-.Caixa_de_Texto{
+
+.Caixa_de_Texto {
   height: 45px;
   width: 150px;
-}
-.Tarefas{
-  width: 1270px;
-  height: 60px;
-  background-color: #B4C4AE;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
