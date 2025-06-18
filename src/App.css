@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -36,11 +36,109 @@
   align-items: center;
 }
 
-.Title {
-  color: #FFFFFF;
+.title {
+  color: darkkhaki;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .Caixa_de_Texto {
   height: 45px;
   width: 150px;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f5f5f5;
+}
+
+.App {
+  padding: 20px;
+  text-align: center;
+}
+
+.entrada {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.semana {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+
+.App {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+input, textarea, select, button {
+  margin: 5px;
+  padding: 8px;
+}
+
+textarea {
+  resize: none;
+  height: 60px;
+}
+
+.form, .filtros {
+  margin: 15px 0;
+}
+
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.checkboxes label {
+  margin: 5px;
+}
+
+.dias-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.dia {
+  border: 1px solid #ccc;
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+.tarefa {
+  border-top: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+}
+
+.tarefa.concluida {
+  text-decoration: line-through;
+  color: gray;
+}
+
+
+@media (min-width: 1024px) {
+  .title {
+    color: darkkhaki;
+    font-size: 3rem;
+  }
+  
+  .semana {
+    flex-direction: row;
+  }
 }
