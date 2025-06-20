@@ -9,7 +9,7 @@ export default function Tarefa({ tarefa, onMarcarTarefa, onDesmarcarTarefa, onRe
   
   return (
     <div className={`tarefa ${tarefa.concluida ? 'concluida' : ''}`}>
-      <p>ID: {tarefa.id}</p>
+      {/* <p>ID: {tarefa.id}</p> */}
       <h3>{tarefa.titulo}</h3>
       <p>{tarefa.descricao}</p>
       <p><strong>Matéria:</strong> {tarefa.materia}</p>

@@ -1,12 +1,78 @@
-# React + Vite
+# Checklist de Estudos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um aplicativo feito em React para organizar tarefas de estudo.
 
-Currently, two official plugins are available:
+## Como funciona
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Posso criar tarefas com título, descrição, escolher a matéria e os dias da semana em que devo fazer.
+- As tarefas ficam organizadas por dia da semana.
+- Dá para filtrar as tarefas para ver só as de um dia ou de uma matéria.
+- Posso marcar as tarefas como concluídas, desmarcar ou remover.
+- Tudo isso usando componentes funcionais do React e o hook useState para controlar o estado.
 
-## Expanding the ESLint configuration
+## Como funciona o filtro
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Na aplicação, tem dois filtros: um para o dia da semana e outro para a matéria. Eles controlam o que aparece na lista de tarefas.
+
+O estado dos filtros fica assim:
+
+```jsx
+const [filtroDia, setFiltroDia] = useState('');
+const [filtroMateria, setFiltroMateria] = useState('');
+````
+
+No JSX, temos selects para escolher o filtro:
+
+```jsx
+<select value={filtroDia} onChange={(e) => setFiltroDia(e.target.value)}>
+  <option value="">Todos os dias</option>
+  {diasSemana.map(dia => <option key={dia} value={dia}>{dia}</option>)}
+</select>
+
+<select value={filtroMateria} onChange={(e) => setFiltroMateria(e.target.value)}>
+  <option value="">Todas as matérias</option>
+  {materias.map(m => <option key={m} value={m}>{m}</option>)}
+</select>
+```
+
+Depois, quando o app mostra as tarefas, ele verifica esses filtros para exibir só as tarefas que combinam:
+
+```jsx
+tarefasPorDia.map((itemTarefa) => {
+  if (filtroDia && filtroDia !== itemTarefa.dia) return null;
+
+  const tarefasFiltradas = itemTarefa.tarefas.filter(
+    (t) => !filtroMateria || t.materia === filtroMateria
+  );
+
+  return (
+    <Dia
+      key={itemTarefa.dia}
+      dia={itemTarefa.dia}
+      tarefas={tarefasFiltradas}
+      onMarcarTarefa={marcarConcluida}
+      onDesmarcarTarefa={desmarcarConcluida}
+      onRemover={removerTarefa}
+    />
+  );
+});
+```
+
+* Se o filtro de dia estiver ativo, só mostra as tarefas daquele dia.
+* Depois filtra as tarefas desse dia para mostrar só as da matéria escolhida.
+* Se nenhum filtro estiver ativo, mostra tudo.
+
+## O que aprendi
+
+* Como criar e usar componentes React funcionais.
+* Como controlar estados com useState.
+* Como passar informações entre componentes usando props.
+* Como lidar com listas e filtros em React.
+* A importância de organizar o código e separar funcionalidades em componentes.
+* A base para continuar melhorando, como pensar em salvar dados e criar uma interface fácil de usar.
+
+## Como rodar
+
+1. Instalar as dependências com `npm install`.
+2. Rodar o projeto com `npm run dev`.
+3. Abrir o navegador em `http://localhost:5173/`.

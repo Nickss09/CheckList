@@ -1,90 +1,65 @@
-/* #root {
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+  --primary-color: #ff338c;
+  --primary-dark: #e87aae;
+  --secondary-color: #ffe4f2;
+  --background-color: #ffd2ec;
+  --text-color: #4b2c3b;
+  --completed-color: #b2889e;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.Header {
-  height: 50px;
-  width: 1280px;
-  border: 1px solid #004b09a0;
-  background-color: #77966D;
-  border-radius: 10px;
-  margin-bottom: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-.List {
-  width: 1280px;
-  background-color: #E5E8B6;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.title {
-  color: darkkhaki;
-  font-size: 2rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.Caixa_de_Texto {
-  height: 45px;
-  width: 150px;
-}
-
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #f5f5f5;
-}
-
 .App {
-  padding: 20px;
-  text-align: center;
-}
-
-.entrada {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-input, select {
-  padding: 8px;
-  font-size: 16px;
-}
-
-.semana {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-} */
-
-.App {
-  padding: 20px;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(255, 180, 220, 0.5);
+  position: relative;
+}
+
+h1::after {
+  content: "﹡ ❀ ｡ﾟ｡ ♡ ｡ﾟ｡ ❀ ﹡";
+  display: block;
+  font-size: 1rem;
+  color: #e87aae;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
 input, textarea, select, button {
-  margin: 5px;
-  padding: 8px;
+  margin: 8px;
+  padding: 10px;
+  border: 1px solid #f5c1d9;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #fff0f7;
+  color: var(--text-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(255, 145, 193, 0.4);
 }
 
 textarea {
@@ -92,7 +67,33 @@ textarea {
   height: 60px;
 }
 
-.form, .filtros {
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 145, 193, 0.2);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filtros {
   margin: 15px 0;
 }
 
@@ -100,45 +101,82 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .checkboxes label {
-  margin: 5px;
+  background-color: var(--secondary-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-color);
+}
+
+.checkboxes input {
+  margin-right: 5px;
 }
 
 .dias-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
 }
 
 .dia {
-  border: 1px solid #ccc;
-  width: 250px;
-  margin: 10px;
-  padding: 10px;
-  background-color: #f7f7f7;
+  border: 1px solid #f5c1d9;
+  border-radius: 10px;
+  width: 260px;
+  padding: 15px;
+  background-color: #fff0f7;
+  box-shadow: 0 2px 6px rgba(255, 145, 193, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.dia:hover {
+  transform: translateY(-4px);
 }
 
 .tarefa {
-  border-top: 1px solid #ddd;
-  padding: 5px;
+  border-top: 1px solid #f9cddd;
+  padding: 10px 0;
   text-align: left;
+  transition: color 0.3s ease;
+  color: var(--text-color);
 }
 
 .tarefa.concluida {
   text-decoration: line-through;
-  color: gray;
+  color: var(--completed-color);
 }
 
+.tarefa button {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: #ffc4da;
+  color: white;
+  border: none;
+}
 
-@media (min-width: 1024px) {
-  .title {
-    color: darkkhaki;
-    font-size: 3rem;
+.tarefa button:hover {
+  background-color: #eaa0bd;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 90%;
   }
-  
-  .semana {
-    flex-direction: row;
+
+  .dia {
+    width: 90%;
+  }
+
+  .checkboxes {
+    flex-direction: column;
+    align-items: center;
   }
 }

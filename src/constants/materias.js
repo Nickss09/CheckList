@@ -1,1 +1,2 @@
-export const materias = ['Matemática', 'História', 'Física', 'Biologia', 'Geografia'];
+export const materias = ['Artes', 'Biologia', 'Educação Física', 'Filosofia', 'Física', 'Geografia', 'História', 'Informática', 'Língua Inglesa', 
+    'Língua Portuguesa', 'Literatura', 'Matemática', 'Química', 'Redação', 'Ensino Religioso', 'Sociologia'];
